@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <table>
+      <tr class="ul_navbar">
+          <td class="nav_li"><a href="/home/">Home</a></td>
+          <td class="nav_li"><a href="/home/userlogout">Logout</a></td>
+      </tr>
+      </table>
+      <ul>
+        <li class="username_display">Welcome: <span class="username_span">{{#username}}{{.}}{{/username}}</span></li>
+        {{#userId}}
+        <li><a href="/home/{{.}}">Account</a></li>
+        {{/userId}}
+      </ul>
+    </div>
+
+  </body>
+</html>

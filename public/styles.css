@@ -1,0 +1,127 @@
+.website_title {
+  font-family: 'Pokemon Hollow';
+  font-size: 5em;
+  list-style-type: none;
+  margin: 0 auto 0 auto;
+}
+
+.navbar {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  padding: 1.4em;
+}
+
+.ul_navbar {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+.username_span {
+  font-family: 'Pokemon Solid';
+  font-size: 1.5em;
+}
+.username_display {
+  list-style-type: none;
+  position: absolute;
+  right: 15px;
+}
+
+.contain_all {
+  display: flex;
+  flex-direction: row;
+}
+
+.pokemon_div_container {
+  background-color: lightblue;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 0 1em;
+  width: 50%;
+  float: left;
+}
+
+.pokemon_list {
+  list-style-type: none;
+}
+
+.left_side_bar {
+  border: 1px solid lightblue;
+  float: left;
+  margin: 1em 0 0 1em;
+  width: 20%;
+}
+
+.right_side_bar {
+  border: 1px solid lightblue;
+  float: left;
+  margin-top: 1em;
+  width: 20%;
+}
+
+
+/* For Pokemon ID Page */
+.div_for_pokedex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.pokedex_left {
+  border: 2px solid black;
+  border-right: 2px solid black;
+  border-radius: 13px;
+  background-color: red;
+  height: 50em;
+  width: 40%;
+}
+
+.pokedex_right {
+  background-color: red;
+  border: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 13px;
+  height: 30em;
+  width: 30%;
+  bottom: 0;
+  margin-top: 20em;
+}
+
+.pokemon_name {
+  background-color: #77FDFF;
+  border: 3px solid white;
+  border-radius: 50px;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-left: .8em;
+  margin-top: .3em;
+  padding: 0 5px 0 5px;
+  position: absolute;
+}
+.display_image {
+  background-color:white;
+  border: 4px solid #A2A2A2;
+  box-shadow: 0 0 1em .3em #A2A2A2;
+  margin-left: 7%;
+  margin-top: 3em;
+  width: 80%;
+  height: 40%;
+}
+
+/* End of Pokemon ID Page */
+
+.edit_pokemon {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
+  width: 20%;
+}
+
+.edit_input {
+  border: 1.5px solid black
+}
+
+
+/* For Pokemon Edit Page */

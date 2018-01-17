@@ -26,10 +26,22 @@
     </div>
 
     {{#pokemon}}
-    <form action="/home/catchpokemon/{{id}}" method="POST">
-      <a href="/home/pokemon/{{id}}">{{name}}</a> <button>Catch</button>
-    </form>
+
+    <div class="div_for_pokedex">
+      <div class="pokedex_left">
+        <div class="pokemon_name">{{name}}</div>
+        <div class="display_image"></div>
+        <form action="/home/catchpokemon/{{id}}" method="POST">
+          <button>Catch</button>
+        </form>
+      </div>
+
+      <div class="pokedex_right">
+        <div class="pokemon_description">
+          {{desc}}
+      </div>
+    </div>
+
     {{/pokemon}}
-    
   </body>
 </html>

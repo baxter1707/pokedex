@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <table>
+      <tr class="ul_navbar">
+        <td class="nav_li"><a href="/home/">Home</a></td>
+        <td class="nav_li"><a href="/home/registeruser">Register</a></td>
+        <td class="nav_li"><a href="/home/userlogin">Login</a></td>
+        <td class="nav_li"><a href="/home/userlogout">Logout</a></td>
+      </tr>
+      </table>
+      <li class="website_title">Pokebase</li>
+      <ul>
+        <li class="username_display"><span class="username_span">{{#username}}{{.}}{{/username}}</span></li>
+        {{#userId}}
+        <li><a href="/home/{{.}}">Account</a></li>
+        {{/userId}}
+      </ul>
+    </div>
+
+    {{#pokemon}}
+    <form class="edit_pokemon">
+      Edit: {{name}}
+      <label>Pokemon ID:</label>
+      <input type="text" class="edit_input" value="{{pokeid}}">
+      <label>Name:</label>
+      <input type="text" class="edit_input" value="{{name}}">
+      <label>Description:</label>
+      <textarea>{{desc}}</textarea>
+      <label>Type:</label>
+      <input type="text" class="edit_input" value="{{type}}">
+      <label>HP:</label>
+      <input type="text" class="edit_input" value="{{hp}}">
+      <label>Attack:</label>
+      <input type="text" class="edit_input" value="{{attack}}">
+      <label>Defense:</label>
+      <input type="text" class="edit_input" value="{{defense}}">
+      <label>Speed:</label>
+      <input type="text" class="edit_input" value="{{speed}}">
+      <label>Sp Attack:</label>
+      <input type="text" class="edit_input" value="{{spattack}}">
+      <label>Sp Defense:</label>
+      <input type="text" class="edit_input" value="{{spdefense}}">
+      <label>Total:</label>
+      <input type="text" class="edit_input" value="{{total}}">
+      <label>Attack 1:</label>
+      <input type="text" class="edit_input" value="{{attackone}}">
+      <label>Attack 2:</label>
+      <input type="text" class="edit_input" value="{{attacktwo}}">
+      <label>Attack 3:</label>
+      <input type="text" class="edit_input" value="{{attackthree}}">
+      <label>Attack 4:</label>
+      <input type="text" class="edit_input" value="{{attackfour}}">
+      <label>Weakness:</label>
+      <input type="text" class="edit_input" value="{{weakness}}">
+      <button>Update</form>
+    </form>
+    {{/pokemon}}
+
+  </body>
+</html>

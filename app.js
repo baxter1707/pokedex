@@ -9,6 +9,7 @@ const express = require('express')
 const app = express()
 
 app.use(bodyParser.urlencoded({extended:false}))
+app.use('/public', express.static('public'))
 app.engine('mustache', mustacheExpress())
 app.use(methodOverride('_method'))
 app.set('view engine', 'mustache')
@@ -47,7 +48,8 @@ app.get('/home',(req,res) => {
       // access pokemon by calling "pokemon"
       pokemon:pokemon,
       // access the stored session username by calling "username"
-      username : req.session.username
+      username : req.session.username,
+      userId : req.session.userId
     })
   })
 })
@@ -74,6 +76,23 @@ app.get('/home/userlogout', (req,res) => {
   // protocol to end the session (destroy the stored cookie/logout the user)
   req.session.destroy((err) => {})
   res.redirect('/home')
+})
+
+// USER ID ROUTE
+app.get('/home/:id', (req,res) => {
+  res.render('showuser', {
+    username : req.session.username
+  })
+})
+
+// SHOW POKEMON ID ROUTE
+app.get('/home/pokemon/:id', (req,res) => {
+  models.pokemon.findAll().then((pokemon) => {
+    res.render('showpokemon', {
+      pokemon : pokemon,
+      username : req.session.usernamen
+    })
+  })
 })
 
 // STARTING POINT FOR THE POSTS
@@ -121,7 +140,12 @@ app.post('/home/userlogin', (req,res) => {
   })
 })
 
-
+app.post('/home/catchpokemon/:id', (req,res) => {
+  models.usertopokemon.create({
+    userid : req.session.userId,
+    pokeid : req.params.id
+  })
+})
 
 // LISTENING TO ROUTES
 app.listen(3000, () =>{

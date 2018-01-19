@@ -6,9 +6,12 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const models = require('./models')
 const express = require('express')
+const multer = require('multer')
+const path = require('path')
 const app = express()
 
 app.use(bodyParser.urlencoded({extended:false}))
+app.use('/uploads', express.static('uploads'))
 app.use('/public', express.static('public'))
 app.engine('mustache', mustacheExpress())
 app.use(methodOverride('_method'))
@@ -16,41 +19,112 @@ app.set('view engine', 'mustache')
 app.use(expressValidator())
 app.set('views', './views')
 
-
 app.use(session({
   secret : 'keyboard cat',
   resave : false,
   saveUninitialized : true
 }))
-/*
-models.users.create({
 
+const storage = multer.diskStorage({
+  destination : './uploads/',
+  filename : ( (req,file,cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  })
 })
 
-models.users.destroy({
-  where:{
-    id : 34
-  }
+const upload = multer({
+  storage : storage
 })
-*/
 
 // STARTING POINT FOR THE ROUTES / GETS
 // REDIRECT TO THE HOME PAGE
+
 app.get('/', (req,res) => {
   res.redirect('/home')
 })
 
 // ROUTE FOR HOME PAGE AND DISPLAY ALL POKEMON
 app.get('/home',(req,res) => {
-  models.pokemon.findAll().then(pokemon => {
+  models.pokemon.findAll({
+    order: [
+      ['pokeid']
+    ]
+  }).then(pokemon => {
     res.render('home', {
-      // access the keys through the view engine
-      // access pokemon by calling "pokemon"
       pokemon:pokemon,
-      // access the stored session username by calling "username"
       username : req.session.username,
       userId : req.session.userId
     })
+  })
+})
+
+app.get('/jsonpokemon', (req,res) => {
+  models.pokemon.findAll({
+    order: [
+      ['pokeid']
+    ]
+  }).then((pokemon) =>{
+    res.json({pokemon:pokemon})
+  })
+})
+
+app.get('/home/grass', (req,res)=> {
+  models.pokemon.findAll({
+    where:{
+      type : 'Grass'
+    }
+  }).then((pokemon) =>{
+    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+  })
+})
+
+app.get('/home/bug', (req,res)=> {
+  models.pokemon.findAll({
+    where:{
+      type : 'Bug'
+    }
+  }).then((pokemon) =>{
+    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+  })
+})
+
+app.get('/home/flying', (req,res)=> {
+  models.pokemon.findAll({
+    where:{
+      type : 'Flying'
+    }
+  }).then((pokemon) =>{
+    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+  })
+})
+
+app.get('/home/fire', (req,res)=> {
+  models.pokemon.findAll({
+    where:{
+      type : 'Fire'
+    }
+  }).then((pokemon) =>{
+    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+  })
+})
+
+app.get('/home/normal', (req,res)=> {
+  models.pokemon.findAll({
+    where:{
+      type : 'Normal'
+    }
+  }).then((pokemon) =>{
+    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+  })
+})
+
+app.get('/home/electric', (req,res)=> {
+  models.pokemon.findAll({
+    where:{
+      type : 'Electric'
+    }
+  }).then((pokemon) =>{
+    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
   })
 })
 
@@ -59,6 +133,10 @@ app.get('/home/users', (req,res) => {
   models.users.findAll().then((users) =>{
     res.send(users)
   })
+})
+
+app.get('/home/createpokemon', (req,res) => {
+  res.render('createpokemon')
 })
 
 // ROUTE FOR REGISTERUER PAGE
@@ -73,7 +151,6 @@ app.get('/home/userlogin', (req,res) => {
 
 // LOGOUT USER
 app.get('/home/userlogout', (req,res) => {
-  // protocol to end the session (destroy the stored cookie/logout the user)
   req.session.destroy((err) => {})
   res.redirect('/home')
 })
@@ -87,10 +164,35 @@ app.get('/home/:id', (req,res) => {
 
 // SHOW POKEMON ID ROUTE
 app.get('/home/pokemon/:id', (req,res) => {
-  models.pokemon.findAll().then((pokemon) => {
+  models.pokemon.findAll({
+    where:{
+      id : req.params.id
+    }
+  }).then((pokemon) => {
     res.render('showpokemon', {
       pokemon : pokemon,
-      username : req.session.usernamen
+      username : req.session.username
+    })
+  })
+})
+
+// ROUTE FOR JSON OF POKEMON
+app.get('/home/pokemon/:id/json', (req,res) => {
+  models.pokemon.findAll({
+    where:{
+      id : req.params.id
+    }
+  }).then((pokemon) =>{
+    res.json({pokemon:pokemon})
+  })
+})
+
+// POKEMON UPDATE ROUTE
+app.get('/home/pokemon/:id/update', (req,res) => {
+  models.pokemon.findAll({where: { id : req.params.id}}).then((pokemon) => {
+    res.render('updatepokemon',{
+      pokemon : pokemon,
+      username : req.session.username
     })
   })
 })
@@ -98,17 +200,13 @@ app.get('/home/pokemon/:id', (req,res) => {
 // STARTING POINT FOR THE POSTS
 // REGISTERING THE USER
 app.post('/home/registeruser', (req,res) => {
-  // assign to user to a constant thencreate a user based on the information
-  // given through the mustache template
   const user = models.users.build({
     username: req.body.username, password: req.body.password,
     firstname: req.body.firstname, lastname: req.body.lastname,
     email: req.body.email
   })
-  // save the user
   user.save().then((user) => {
     req.username = user.username
-    // authenticate the user
     req.session.authenticated = true
     res.redirect('/home/userlogin')
   })
@@ -116,7 +214,6 @@ app.post('/home/registeruser', (req,res) => {
 
 // LOGGING IN THE USER
 app.post('/home/userlogin', (req,res) => {
-  // find the user in the database, assign it to a variable "user"
   var user = models.users.findOne({
     where:{
       username : req.body.username,
@@ -124,14 +221,9 @@ app.post('/home/userlogin', (req,res) => {
     }
     // give me the user
   }).then(user => {
-    // if password in "user" matches the entered password through the body
     if(user.password == req.body.password) {
-      // assign it to a session. The username is now stored in a session
-      //and can be accessed anywhere as shown in the "app.get('/home')"
       req.session.username = req.body.username
-      // same goes for the id.
       req.session.userId = user.dataValues.id
-      // authenticat the login action like done in registering the user
       req.session.authenticated = true
       res.redirect('/home')
     } else {
@@ -140,14 +232,71 @@ app.post('/home/userlogin', (req,res) => {
   })
 })
 
+// INSERTING POKEID AND USERID INTO USERTOPOKEMON TABLE
 app.post('/home/catchpokemon/:id', (req,res) => {
   models.usertopokemon.create({
     userid : req.session.userId,
     pokeid : req.params.id
+  }).then(() => {
+    res.send('You have added a new pokemon')
   })
 })
 
-// LISTENING TO ROUTES
+// CREATE A POKEMON
+app.post('/home/createpokemon', upload.single('pokemonimg'), (req,res) => {
+  models.pokemon.create({
+    pokeid: req.body.pokeid,
+    name: req.body.name,
+    type: req.body.type,
+    hp: req.body.hp,
+    attack: req.body.attack,
+    defense: req.body.defense,
+    spattack: req.body.spattack,
+    spdefense: req.body.spdefense,
+    speed: req.body.speed,
+    total: req.body.total,
+    attackone: req.body.attackone,
+    attacktwo: req.body.attacktwo,
+    attackthree: req.body.attackthree,
+    attackfour: req.body.attackfour,
+    desc: req.body.desc,
+    weakness: req.body.weakness,
+    image: req.file.path
+  }).then((pokemon) => {
+    res.redirect('/home')
+  })
+})
+
+// EDIT POKEMON
+app.put('/home/pokemon/:id/update?', upload.single('pokemonimg'), (req,res) => {
+  models.pokemon.update({
+    pokeid: req.body.pokeid,
+    name: req.body.name,
+    desc: req.body.desc,
+    type: req.body.type,
+    hp: req.body.hp,
+    attack: req.body.attack,
+    defense: req.body.defense,
+    spattack: req.body.spattack,
+    spdefense: req.body.spdefense,
+    speed: req.body.speed,
+    total: req.body.total,
+    attackone: req.body.attackone,
+    attacktwo: req.body.attacktwo,
+    attackthree: req.body.attackthree,
+    attackfour: req.body.attackfour,
+    desc: req.body.desc,
+    weakness: req.body.weakness,
+    image: req.file.path
+  }, { where : {
+    id : req.params.id
+  }}).then(() => {
+    res.redirect('/home')
+  })
+})
+
+
+// LISTEN TO ROUTES
 app.listen(3000, () =>{
   console.log('We are live on channel 3000')
 })

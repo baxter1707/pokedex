@@ -3,44 +3,73 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/public/styles.css">
+    <link rel="stylesheet" type="text/css" href="/public/smallDevices.css" media="screen and (min-width:320px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/plusDevices.css" media="screen and (min-width:768px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/desktop.css" media="screen and (min-width:1100px)"/>
   </head>
   <body>
 
-    <div class="navbar">
+    <div class="header">
       <table>
-      <tr class="ul_navbar">
-          <td class="nav_li"><a href="/home/registeruser">Register</a></td>
-          <td class="nav_li"><a href="/home/userlogin">Login</a></td>
-          <td class="nav_li"><a href="/home/userlogout">Logout</a></td>
+      <tr>
+          <td class="website_title">Pokebase</td>
+          <td><img class="pokeball_img" src="/public/pokeball.png"></td>
       </tr>
+      <table class="login_table">
+        <tr>
+          <th colspan="3">
+            <span class="username_span">{{#username}}{{.}}{{/username}}</span>
+            {{#userId}}<a href="/home/{{.}}">Account</a>{{/userId}}
+          </th>
+        </tr>
+
+        <tr>
+          <td class="login_li"><a href="/home/registeruser">Register</a></td>
+          <td class="login_li"><a href="/home/userlogin">Login</a></td>
+          <td class="login_li"><a href="/home/userlogout">Logout</a></td>
+        </tr>
       </table>
-      <li class="website_title">Pokebase</li>
-      <ul class="username_display">
-        <li><span class="username_span">{{#username}}{{.}}{{/username}}</span></li>
-        <li>{{#userId}}<a href="/home/{{.}}">Account</a>{{/userId}}</li>
-      </ul>
+
     </div>
+    <!--
+    <table class="navbar">
+      <tr>
+        <td class="nav_elements"><a href="/home">Home</td>
+      </tr>
+    </table>
+    -->
 
     <div class="contain_all">
       <div class="left_side_bar">
-        Information in here
+          <li class="grass_att"><a href="/home/grass">Grass</a></li>
+          <li class="bug_att"><a href="/home/bug">Bug</a></li>
+          <li class="fire_att"><a href="/home/fire">Fire</a></li>
+          <li class="flying_att"><a href="/home/flying">Flying</a></li>
+          <li class="normal_att"><a href="/home/normal">Normal</a></li>
+          <li class="electric_att"><a href="/home/electric">Electric</a></li>
       </div>
 
       <div class="pokemon_div_container">
-
-        {{#pokemon}}
-        <ul class="pokemon_list">
-          <li>
-              <a href="/home/pokemon/{{id}}">{{name}}</a>
+          <li>To view all pokemon in a JSON format <a href="/jsonpokemon">Click Here</a>!</li>
+          {{#pokemon}}
+          <li class="list_pokemon">
+            <table>
+                <tr>
+                  <td>#0{{pokeid}}</td>
+                  <td><img class="home_pokemon_image" src="{{image}}"></td>
+                  <td><a href="/home/pokemon/{{id}}">{{name}}</a></td>
+                </tr>
+            </table>
           </li>
-        </ul>
-        {{/pokemon}}
+          {{/pokemon}}
       </div>
 
       <div class="right_side_bar">
         information in here
       </div>
+
     </div>
 
 

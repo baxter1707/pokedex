@@ -135,8 +135,13 @@ app.get('/home/users', (req,res) => {
   })
 })
 
-app.get('/home/createpokemon', (req,res) => {
-  res.render('createpokemon')
+// CREATE POKEMON PAGE
+app.get('/home/createpokemon', (req,res) =>{
+  if(req.session.username != 'Jesus1466'){
+    res.send("Invalid credentials")
+  }else{
+    res.render('createpokemon')
+  }
 })
 
 // ROUTE FOR REGISTERUER PAGE
@@ -158,8 +163,26 @@ app.get('/home/userlogout', (req,res) => {
 // USER ID ROUTE
 app.get('/home/:id', (req,res) => {
   res.render('showuser', {
-    username : req.session.username
+    user : req.session.username,
+    userid : req.session.userId
   })
+})
+
+//view User pokemon
+app.get('/home/:id/showuserpokemon', (req,res) => {
+  models.users.findAll({
+      where : {
+        id : req.session.userId
+      }, include : [{
+        required : false,
+        model : models.pokemon
+      }], raw : false
+}).then((user) => {
+  res.render('viewuserpokemon', {
+    user:user,
+    username: req.session.username
+  })
+ })
 })
 
 // SHOW POKEMON ID ROUTE

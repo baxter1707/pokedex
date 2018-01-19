@@ -5,7 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
-    email: DataTypes.STRING
+    email: DataTypes.STRING,
+    bio: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    image: DataTypes.STRING,
+    hometown: DataTypes.STRING
   }, {});
 
 users.associate = (models) => {

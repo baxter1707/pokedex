@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     attackthree: DataTypes.STRING,
     attackfour: DataTypes.STRING,
     desc: DataTypes.STRING,
-    weakness: DataTypes.STRING
+    weakness: DataTypes.STRING,
+    image: DataTypes.STRING
   }, {});
 
 pokemon.associate = (models) => {

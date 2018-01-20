@@ -9,21 +9,35 @@
 }
 
 .contain_all {
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.contain_left_center {
   display: flex;
   flex-direction: column;
 }
 
 .left_side_bar {
-  margin-right: 15px;
+  font-size: 1.1em;
+  margin: 1em auto 0 auto;
   text-align: center;
   width: 90%
 }
 
 .pokemon_div_container {
+  font-size: 1.1em;
+  margin: 1em auto 0 auto;
   width: 90%;
 }
 
+.home_pokemon_image {
+  height: 60px;
+  width: 60px;
+}
+
 .right_side_bar {
+  font-size: 1.1em;
   width: 90%;
+  margin: 1em auto 0 auto;
 }

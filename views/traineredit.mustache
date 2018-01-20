@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+  </head>
+  <body>
+
+    <div class="header">
+      <table class="display_title">
+      <tr>
+          <td class="website_title">Pokebase</td>
+          <td><img class="pokeball_img" src="/public/pokeball.png"></td>
+      </tr>
+      <table class="login_table">
+        <tr>
+          <th colspan="3">
+            <span class="username_span">{{#username}}{{.}}{{/username}}</span>
+            {{#userId}}<a href="/home/{{.}}">Account</a>{{/userId}}
+          </th>
+        </tr>
+
+        <tr>
+          <td class="login_li"><a href="/home/registeruser">Register</a></td>
+          <td class="login_li"><a href="/home/userlogin">Login</a></td>
+          <td class="login_li"><a href="/home/userlogout">Logout</a></td>
+        </tr>
+      </table>
+
+      </table>
+
+    </div>
+
+    <table class="navbar">
+      <tr>
+        <td class="nav_elements"><a href="/home">Home</td>
+      </tr>
+    </table>
+
+    {{#user}}
+    <form class="edit_trainer" action='/home/{{id}}/traineredit?_method=put' enctype="multipart/form-data" method='POST'>
+      EDIT: {{username}}
+
+      <input type= "file" name="trainerimage">
+      <label> First Name: </label>
+      <input type="text" class="edit_input" name="firstname" value={{firstname}}>
+      <label> Last Name: </label>
+      <input type='text' class='edit_input' name='lastname' value={{lastname}}>
+      <label> Email </label>
+      <input type='text' class="edit_input" name='email' value={{email}}>
+      <label> Bio </label>
+      <textarea class="edit_input" name='bio'>{{bio}}</textarea>
+      <label> Age </label>
+      <input type='text' class= 'edit_input' name='age' value={{age}}>
+      <label> Hometown </label>
+      <input type='text' class='edit_input' name='hometown' value={{hometown}}>
+      <button>Submit</button>
+
+    </form>
+
+    {{/user}}
+
+
+
+  </body>
+</html>

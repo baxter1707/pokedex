@@ -16,7 +16,7 @@
       <table class="login_table">
         <tr>
           <th colspan="3">
-            <span class="username_span">{{#user}}{{.}}{{/user}}</span>
+            <span class="username_span">{{#username}}{{.}}{{/username}}</span>
           </th>
         </tr>
 
@@ -36,7 +36,7 @@
         <td class="nav_elements"><a href="/home">Home</td>
         <td class="nav_elements"><a href="/home/createpokemon">Add Pokemon</a></td>
         <td class="nav_elements"><a href="/home/{{#userid}}{{.}}{{/userid}}/showuserpokemon">Trainer Pokemon</a></td>
-
+        <td class='nav_elements'><a href='/home/{{#userid}}{{.}}{{/userid}}/traineredit'>Edit Trainer Info</a></td>
       </tr>
     </table>
 

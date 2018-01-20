@@ -162,10 +162,31 @@ app.get('/home/userlogout', (req,res) => {
 
 // USER ID ROUTE
 app.get('/home/:id', (req,res) => {
-  res.render('showuser', {
-    user : req.session.username,
-    userid : req.session.userId
-  })
+    models.users.findAll({
+      where:{
+        id: req.params.id
+      }
+    }).then((user) =>{
+    res.render('showuser', {
+      user : user,
+      username : req.session.username,
+      userid : req.session.userId
+    })
+  })
+})
+
+//EDIT USER/TRAINER INFO PAGE
+app.get('/home/:id/traineredit',(req,res)=>{
+  models.users.findAll({
+    where: {
+      id: req.params.id
+    }
+  }).then((user) =>{
+    res.render('traineredit',{
+      user:user,
+      username:req.session.username,
+      userId:req.session.userId})
+  })
 })
 
 //view User pokemon
@@ -257,12 +278,16 @@ app.post('/home/userlogin', (req,res) => {
 
 // INSERTING POKEID AND USERID INTO USERTOPOKEMON TABLE
 app.post('/home/catchpokemon/:id', (req,res) => {
-  models.usertopokemon.create({
-    userid : req.session.userId,
-    pokeid : req.params.id
-  }).then(() => {
-    res.send('You have added a new pokemon')
-  })
+  if(!req.session.username){
+    res.send("You aren't logged in")
+  } else {
+    models.usertopokemon.create({
+      userid : req.session.userId,
+      pokeid : req.params.id
+    }).then(() => {
+      res.redirect('/home/:id/showuserpokemon')
+    })
+  }
 })
 
 // CREATE A POKEMON
@@ -318,6 +343,22 @@ app.put('/home/pokemon/:id/update?', upload.single('pokemonimg'), (req,res) => {
   })
 })
 
+// EDIT Trainer
+app.put('/home/:id/traineredit?', upload.single('trainerimage'), (req,res) => {
+  models.users.update({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    bio: req.body.bio,
+    age: req.body.age,
+    image: req.file.path,
+    hometown: req.body.hometown
+  }, { where : {
+    id : req.params.id
+  }}).then(() => {
+    res.redirect('/home')
+  })
+})
 
 // LISTEN TO ROUTES
 app.listen(3000, () =>{

@@ -29,13 +29,13 @@ body {
 }
 
 .login_table {
+  border-collapse: collapse;
   position: absolute;
   right: 0;
 }
 
 .login_li {
-  background-color: #E8E3E3;
-  border: 2px solid #AFAFAF;
+  background-color: #ECF0F1;
   border-radius: 5px;
   padding: .2em;
 }

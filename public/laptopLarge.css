@@ -1,0 +1,39 @@
+.header {
+  display:flex;
+  flex-direction: row;
+}
+
+.login_table {
+  position: absolute;
+  right: 0;
+}
+
+.contain_all {
+  display: flex;
+  flex-direction: row;
+  width: 90%
+}
+
+.contain_left_center {
+  width:75%;
+}
+
+.left_side_bar {
+  font-size: 1.3em;
+  width: 30%;
+}
+
+.pokemon_div_container {
+  font-size: 1.3em;
+  width: 55%;
+}
+
+.home_pokemon_image {
+  width: 70px;
+  height: 70px;
+}
+
+.right_side_bar {
+  font-size: 1.3em;
+  width: 20%;
+}

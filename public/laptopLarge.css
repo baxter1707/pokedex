@@ -3,9 +3,31 @@
   flex-direction: row;
 }
 
+.website_title {
+  font-size: 2.9em;
+}
+
+.username_span {
+  font-size: .9em;
+}
+
+.login_anchor {
+  font-size: .8em;
+}
+
+.pokeball_img {
+    height: 3.5em;
+    width: 3.5em;
+}
+
 .login_table {
+  font-size: 1.4em;
   position: absolute;
   right: 0;
+}
+
+.navbar {
+  font-size: 1.2em;
 }
 
 .contain_all {
@@ -36,4 +58,19 @@
 .right_side_bar {
   font-size: 1.3em;
   width: 20%;
+}
+
+/* User Login */
+.login {
+  width: 25%;
+}
+
+.login_input {
+  font-size: 1em;
+  padding: .7em;
+  width: 80%;
+}
+
+.login_button {
+  font-size: 1.1em;
 }

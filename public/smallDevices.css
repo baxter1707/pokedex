@@ -4,29 +4,44 @@
   flex-direction: column;
 }
 
-.login_table {
-  position: inherit;
+.pokemon_font {
+  font-size: 2.5em;
 }
+
+.login_table {
+  position: relative;
+}
+
+.login_li {
+    font-size: 1.6em;
+}
+
+.navbar {
+  font-size: 1.2em;
+  margin: 1em auto 1em auto;
+}
+
+/* Home Page */
 
 .contain_all {
   display: flex;
   flex-direction: column;
+  font-size: 1.3em;
 }
 
 .contain_left_center {
   display: flex;
   flex-direction: column;
+  font-size: 1.2em;
 }
 
 .left_side_bar {
-  font-size: 1.1em;
   margin: 1em auto 0 auto;
   text-align: center;
   width: 90%
 }
 
 .pokemon_div_container {
-  font-size: 1.1em;
   margin: 1em auto 0 auto;
   width: 90%;
 }
@@ -37,7 +52,107 @@
 }
 
 .right_side_bar {
-  font-size: 1.1em;
+  font-size: 1.2em;
   width: 90%;
   margin: 1em auto 0 auto;
+}
+
+
+/* For Pokemon ID Page */
+.div_for_pokedex {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokedex_left {
+  width: 100%;
+}
+
+.pokemon_id {
+  font-size: 1.6em;
+}
+
+.pokemon_image {
+  margin: 3em auto 0 auto;
+  height: 180px;
+  width: 180px;
+}
+
+.catch_button {
+  font-size: 1.2em;
+}
+
+.pokemon_json {
+  font-size: 1.2em;
+}
+
+.pokemon_name {
+  font-size: 1.3em;
+}
+
+.pokedex_right {
+  border: 2px solid black;
+  border-top: 5px solid #4D4D4D;
+  box-shadow: 0 0 1em .2em black;
+  margin-top: 0;
+  width: 100%;
+}
+
+.pokemon_description {
+  font-size: 1.2em;
+  height: 11em;
+  width: 80%;
+}
+
+.pokemon_stats {
+  font-size: 16px;
+  width: 80%;
+}
+
+/* User Login */
+.login {
+  margin: 2em auto 0 auto;
+  padding: 3em;
+  width: 70%;
+}
+
+.login_input {
+  font-size: 1em;
+  padding: .7em;
+  width: 80%;
+}
+
+
+.login_button {
+  font-size: 1.1em;
+  padding: .6em .8em .6em .8em;
+}
+
+/* Create Pokemon Page */
+
+.form_div {
+  font-size: .9em;
+  margin: 0 auto 0 auto;
+  width: 100%;
+}
+
+.create_pokemon_form {
+  padding: 3em;
+}
+
+.poke_img_upload {
+  font-size: 1em;
+}
+
+.edit_input {
+  width: 95%;
+}
+
+.desc_input {
+  height: 5em;
+}
+
+.submit_pokemon {
+  font-size: 1.2em;
 }

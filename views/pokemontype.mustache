@@ -3,20 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/public/styles.css">
-    <link rel="stylesheet" type="text/css" href="/public/smallDevices.css" media="screen and (min-width:320px)"/>
-    <link rel="stylesheet" type="text/css" href="/public/betweenSmallPlus.css" media="screen and (min-width:376px)"/>
-    <link rel="stylesheet" type="text/css" href="/public/plusDevices.css" media="screen and (min-width:530px)"/>
-    <link rel="stylesheet" type="text/css" href="/public/tabletDevices.css" media="screen and (min-width:768px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/smallDevices.css" media="screen and (min-width:500px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/plusDevices.css" media="screen and (min-width:700px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/tabletDevices.css" media="screen and (min-width:950px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/laptopReg.css" media="screen and (min-width:1200px)"/>
     <link rel="stylesheet" type="text/css" href="/public/laptopLarge.css" media="screen and (min-width:1440px)"/>
     <link rel="stylesheet" type="text/css" href="/public/television.css" media="screen and (min-width:2000px)"/>
   </head>
   <body>
 
     <div class="header">
-      <table class="display_title">
+      <table>
       <tr>
-          <td class="website_title">Pokebase</td>
+          <td class="pokemon_font">Pokebase</td>
           <td><img class="pokeball_img" src="/public/pokeball.png"></td>
       </tr>
       <table class="login_table">
@@ -28,12 +29,10 @@
         </tr>
 
         <tr>
-          <td class="login_li"><a href="/home/registeruser">Register</a></td>
-          <td class="login_li"><a href="/home/userlogin">Login</a></td>
-          <td class="login_li"><a href="/home/userlogout">Logout</a></td>
+          <td class="login_li"><a class="login_anchor" href="/home/registeruser">Register</a></td>
+          <td class="login_li"><a class="login_anchor" href="/home/userlogin">Login</a></td>
+          <td class="login_li"><a class="login_anchor" href="/home/userlogout">Logout</a></td>
         </tr>
-      </table>
-
       </table>
 
     </div>

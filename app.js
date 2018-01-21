@@ -74,7 +74,11 @@ app.get('/home/grass', (req,res)=> {
       type : 'Grass'
     }
   }).then((pokemon) =>{
-    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+    res.render('pokemontype', {
+      pokemon:pokemon,
+      username : req.session.username,
+      userId : req.session.userId
+    })
   })
 })
 
@@ -84,7 +88,11 @@ app.get('/home/bug', (req,res)=> {
       type : 'Bug'
     }
   }).then((pokemon) =>{
-    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+    res.render('pokemontype', {
+      pokemon:pokemon,
+      username : req.session.username,
+      userId : req.session.userId
+    })
   })
 })
 
@@ -94,7 +102,11 @@ app.get('/home/flying', (req,res)=> {
       type : 'Flying'
     }
   }).then((pokemon) =>{
-    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+    res.render('pokemontype', {
+      pokemon:pokemon,
+      username : req.session.username,
+      userId : req.session.userId
+    })
   })
 })
 
@@ -104,7 +116,11 @@ app.get('/home/fire', (req,res)=> {
       type : 'Fire'
     }
   }).then((pokemon) =>{
-    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+    res.render('pokemontype', {
+      pokemon:pokemon,
+      username : req.session.username,
+      userId : req.session.userId
+    })
   })
 })
 
@@ -114,7 +130,11 @@ app.get('/home/normal', (req,res)=> {
       type : 'Normal'
     }
   }).then((pokemon) =>{
-    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+    res.render('pokemontype', {
+      pokemon:pokemon,
+      username : req.session.username,
+      userId : req.session.userId
+    })
   })
 })
 
@@ -124,7 +144,11 @@ app.get('/home/electric', (req,res)=> {
       type : 'Electric'
     }
   }).then((pokemon) =>{
-    res.render('pokemontype', {pokemon:pokemon, username : req.session.username})
+    res.render('pokemontype', {
+      pokemon:pokemon,
+      username : req.session.username,
+      userId : req.session.userId
+    })
   })
 })
 
@@ -137,9 +161,9 @@ app.get('/home/users', (req,res) => {
 
 // CREATE POKEMON PAGE
 app.get('/home/createpokemon', (req,res) =>{
-  if(req.session.username != 'Jesus1466'){
-    res.send("Invalid credentials")
-  }else{
+  if(req.session.username != "Jesus1466") {
+    res.send("You are not authorized!")
+  } else {
     res.render('createpokemon')
   }
 })
@@ -185,7 +209,8 @@ app.get('/home/:id/traineredit',(req,res)=>{
     res.render('traineredit',{
       user:user,
       username:req.session.username,
-      userId:req.session.userId})
+      userId:req.session.userId
+    })
   })
 })
 
@@ -201,7 +226,8 @@ app.get('/home/:id/showuserpokemon', (req,res) => {
 }).then((user) => {
   res.render('viewuserpokemon', {
     user:user,
-    username: req.session.username
+    username: req.session.username,
+    userId:req.session.userId
   })
  })
 })
@@ -215,7 +241,8 @@ app.get('/home/pokemon/:id', (req,res) => {
   }).then((pokemon) => {
     res.render('showpokemon', {
       pokemon : pokemon,
-      username : req.session.username
+      username : req.session.username,
+      userId : req.session.userId,
     })
   })
 })
@@ -236,7 +263,8 @@ app.get('/home/pokemon/:id/update', (req,res) => {
   models.pokemon.findAll({where: { id : req.params.id}}).then((pokemon) => {
     res.render('updatepokemon',{
       pokemon : pokemon,
-      username : req.session.username
+      username : req.session.username,
+      userId:req.session.userId
     })
   })
 })

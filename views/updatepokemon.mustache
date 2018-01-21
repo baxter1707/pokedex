@@ -3,14 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/smallDevices.css" media="screen and (min-width:320px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/plusDevices.css" media="screen and (min-width:530px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/tabletDevices.css" media="screen and (min-width:768px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/laptopReg.css" media="screen and (min-width:1024px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/television.css" media="screen and (min-width:2000px)"/>
     <link rel="stylesheet" type="text/css" href="/public/styles.css">
   </head>
   <body>
 
     <div class="header">
-      <table class="display_title">
+      <table>
       <tr>
-          <td class="website_title">Pokebase</td>
+          <td class="pokemon_font">Pokebase</td>
           <td><img class="pokeball_img" src="/public/pokeball.png"></td>
       </tr>
       <table class="login_table">
@@ -22,12 +28,10 @@
         </tr>
 
         <tr>
-          <td class="login_li"><a href="/home/registeruser">Register</a></td>
-          <td class="login_li"><a href="/home/userlogin">Login</a></td>
-          <td class="login_li"><a href="/home/userlogout">Logout</a></td>
+          <td class="login_li"><a class="login_anchor" href="/home/registeruser">Register</a></td>
+          <td class="login_li"><a class="login_anchor" href="/home/userlogin">Login</a></td>
+          <td class="login_li"><a class="login_anchor" href="/home/userlogout">Logout</a></td>
         </tr>
-      </table>
-
       </table>
 
     </div>
@@ -39,43 +43,67 @@
     </table>
 
     {{#pokemon}}
-    <form class="edit_pokemon" action="/home/pokemon/{{id}}/update?_method=PUT" method="POST" enctype="multipart/form-data">
-      Edit: {{name}}
-      <input type="file" name="pokemonimg">
-      <label>Pokemon ID:</label>
-      <input type="text" class="edit_input" name="pokeid" value="{{pokeid}}">
-      <label>Name:</label>
-      <input type="text" class="edit_input" name="name" value="{{name}}">
-      <label>Description:</label>
-      <textarea name="desc">{{desc}}</textarea>
-      <label>Type:</label>
-      <input type="text" class="edit_input" name="type" value="{{type}}">
-      <label>HP:</label>
-      <input type="text" class="edit_input" name="hp" value="{{hp}}">
-      <label>Attack:</label>
-      <input type="text" class="edit_input" name="attack" value="{{attack}}">
-      <label>Defense:</label>
-      <input type="text" class="edit_input" name="defense" value="{{defense}}">
-      <label>Speed:</label>
-      <input type="text" class="edit_input" name="speed" value="{{speed}}">
-      <label>Sp Attack:</label>
-      <input type="text" class="edit_input" name="spattack" value="{{spattack}}">
-      <label>Sp Defense:</label>
-      <input type="text" class="edit_input" name="spdefense" value="{{spdefense}}">
-      <label>Total:</label>
-      <input type="text" class="edit_input" name="total" value="{{total}}">
-      <label>Attack 1:</label>
-      <input type="text" class="edit_input" name="attackone" value="{{attackone}}">
-      <label>Attack 2:</label>
-      <input type="text" class="edit_input" name="attacktwo" value="{{attacktwo}}">
-      <label>Attack 3:</label>
-      <input type="text" class="edit_input" name="attackthree" value="{{attackthree}}">
-      <label>Attack 4:</label>
-      <input type="text" class="edit_input" name="attackfour" value="{{attackfour}}">
-      <label>Weakness:</label>
-      <input type="text" class="edit_input" name="weakness" value="{{weakness}}">
-      <button>Update</form>
-    </form>
+    <div class="form_div">
+      <form class="create_pokemon_form" action="/home/pokemon/{{id}}/update?_method=PUT" method="POST" enctype="multipart/form-data">
+        <table>
+          <tr class="poke_form_tr">
+            <th colspan="2" class="upload_font">Update {{name}}'s info'!</th>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="file" name="pokemonimg" class="poke_img_upload"</td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">Poke #:</label><br>
+            <input type="text" class="edit_input" name="pokeid" class="create_input" value="{{pokeid}}"></td>
+            <td><label class="poke_input_label">Name:</label><br>
+            <input type="text" class="edit_input" name="name" class="create_input" value="{{name}}"></td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">HP:</label><br>
+            <input type="text" class="edit_input" name="hp" class="create_input" value="{{hp}}"></td>
+            <td><label class="poke_input_label">Attack:</label><br>
+            <input type="text" class="edit_input" name="attack" class="create_input" value="{{attack}}"></td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">Speed:</label><br>
+            <input type="text" class="edit_input" name="speed" class="create_input" value="{{speed}}"></td>
+            <td><label class="poke_input_label">Defense:</label><br>
+            <input type="text" class="edit_input" name="speed" class="create_input" value="{{defense}}"></td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">Sp Attack:</label><br>
+            <input type="text" class="edit_input" name="spattack" class="create_input" value="{{spattack}}"></td>
+            <td><label class="poke_input_label">Sp Defense:</label><br>
+            <input type="text" class="edit_input" name="spdefense" class="create_input" value="{{spdefense}}"></td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">Total:</label><br>
+            <input type="text" class="edit_input" name="total" class="create_input" value="{{total}}"></td>
+            <td><label class="poke_input_label">Weakness:</label><br>
+            <input type="text" class="edit_input" name="weakness" class="create_input" value="{{weakness}}"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><label class="poke_input_label">Description:</label><br>
+            <textarea class="desc_input" name="desc">{{desc}}</textarea></td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">Attack 1:</label><br>
+            <input type="text" class="edit_input" name="attackone" class="create_input" value="{{attackone}}"></td>
+            <td><label class="poke_input_label">Attack 2:</label><br>
+            <input type="text" class="edit_input" name="attacktwo" class="create_input" value="{{attacktwo}}"></td>
+          </tr>
+          <tr>
+            <td><label class="poke_input_label">Attack 3:</label><br>
+            <input type="text" class="edit_input" name="attackthree" class="create_input" value="{{attackthree}}"></td>
+            <td><label class="poke_input_label">Attack 4:</label><br>
+            <input type="text" class="edit_input" name="attackfour" class="create_input" value="{{attackfour}}"></td>
+          </tr>
+          <tr>
+            <th colspan="2"><button class="submit_pokemon">Create</form></th>
+          </tr>
+        </table>
+      </form>
+    </div>
     {{/pokemon}}
 
   </body>

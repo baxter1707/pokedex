@@ -14,40 +14,35 @@ body {
   border: 3px solid #700F0F;
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
   margin: 0 auto 0 auto;
   padding-bottom: 1em;
   width: 95%;
   position: relative;
 }
 
-.website_title {
+.pokemon_font {
   font-family: 'Pokemon Hollow';
   font-size: 2em;
   list-style-type: none;
   margin: 0 auto 0 auto;
 }
 
-.login_table {
-  border-collapse: collapse;
-  position: absolute;
-  right: 0;
-}
-
 .login_li {
-  background-color: #ECF0F1;
+  background-color: #DDDDDD;
+  border: 1px solid #681919;
   border-radius: 5px;
-  padding: .2em;
 }
 
 .pokeball_img {
   height: 3em;
   width: 3em;
 }
+
 .username_span {
   font-family: 'Pokemon Solid';
   font-size: 1.5em;
 }
+
 .username_display {
   list-style-type: none;
   position: absolute;
@@ -93,6 +88,7 @@ body {
 }
 
 .grass_att {
+  border: 1px solid black;
   background-color: #0C9C03;
   border-radius: 9px;
   margin-top: 1px;
@@ -101,6 +97,7 @@ body {
 
 .bug_att {
   background-color: #A9B60E;
+  border: 1px solid black;
   border-radius: 9px;
   margin-top: 1px;
   padding: .6em;
@@ -108,6 +105,7 @@ body {
 
 .fire_att {
   background-color: #D85A11;
+  border: 1px solid black;
   border-radius: 9px;
   margin-top: 1px;
   padding: .6em;
@@ -115,6 +113,7 @@ body {
 
 .flying_att {
   background-color: #B5AAD7;
+  border: 1px solid black;
   border-radius: 9px;
   margin-top: 1px;
   padding: .6em;
@@ -122,6 +121,7 @@ body {
 
 .normal_att {
   background-color: #BDA883;
+  border: 1px solid black;
   border-radius: 9px;
   margin-top: 1px;
   padding: .6em;
@@ -129,6 +129,7 @@ body {
 
 .electric_att {
   background-color: #E3CC4E;
+  border: 1px solid black;
   border-radius: 9px;
   margin-top: 1px;
   padding: .6em;
@@ -150,7 +151,7 @@ body {
 }
 
 .list_pokemon {
-  border: 2px solid #59A6D6;
+  border: 2px solid #3F8DBD;
 }
 
 .home_pokemon_image {
@@ -186,18 +187,6 @@ body {
   width: 40%;
 }
 
-.pokedex_right {
-  background-color: red;
-  border: 2px solid black;
-  border-left: 5px solid #4D4D4D;
-  border-radius: 20px;
-  box-shadow: 0 0 .1em .2em gray;
-  height: 33em;
-  width: 35%;
-  bottom: 0;
-  margin-top: 12em;
-}
-
 .pokemon_id {
   background-color: #289DE4;
   border: 1.5px solid white;
@@ -205,7 +194,7 @@ body {
   font-size: 1.5em;
   margin-left: .8em;
   margin-top: .3em;
-  padding: 0 5px 0 5px;
+  padding: 0 .4em 0 .4em;
   position: absolute;
 }
 
@@ -220,6 +209,7 @@ body {
 }
 
 .pokemon_image {
+  margin: auto;
   width: 300px;
   height: 280px;
 }
@@ -256,6 +246,17 @@ body {
   font-size: 1em;
   margin: 5em 0 0 1em;
   padding: 1em 1.5em 1em 1.5em;
+}
+
+.pokedex_right {
+  background-color: red;
+  border: 2px solid black;
+  border-left: 5px solid #4D4D4D;
+  border-radius: 20px;
+  box-shadow: 0 0 .1em .2em gray;
+  height: 33em;
+  width: 35%;
+  margin-top: 12em;
 }
 
 .pokemon_description {
@@ -296,4 +297,72 @@ body {
 }
 
 
-/* For Pokemon Edit Page */
+/* User Login Page */
+.login {
+  background-color: #53B9D5;
+  border: 1px solid #0B4263;
+  box-shadow: 0 0 .1em .1em #062639;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 5em auto 0 auto;
+  padding: 2em;
+  width: 15%;
+}
+
+.login_input {
+  border: 2px solid #3E7BB9;
+  border-radius: 3px;
+  font-size: .8em;
+  margin: 0 auto 1em auto;
+  padding: .3em;
+  width: 80%;
+}
+
+
+.login_button {
+  border: 1px solid #03315E;
+  border-radius: 4px;
+  font-size: .8em;
+  margin: 0 auto 0 auto;
+  padding: .6em .8em .6em .8em;
+}
+
+/* Create Pokemon Page */
+
+.form_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.create_pokemon_form {
+  background-color: #DFB7B7;
+  border-radius: 8px;
+  font-size: 1.1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.upload_font {
+    font-family: 'Pokemon Hollow';
+  }
+
+.edit_input {
+  border: 1px solid #C27171;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.desc_input {
+  border: 1px solid #C27171;
+  border-radius: 5px;
+  height: 5em;
+  width: 100%;
+}
+
+.submit_pokemon {
+  background-color: #B7D7DF;
+  border: 1px solid #6FADBC;
+  border-radius: 5px;
+}

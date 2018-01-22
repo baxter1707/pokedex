@@ -10,7 +10,7 @@ body {
 
 /* Header */
 .header {
-  background-color: red;
+  background-color: #D24D5B;
   border: 3px solid #700F0F;
   border-radius: 10px;
   display: flex;
@@ -337,8 +337,8 @@ body {
 }
 
 .create_pokemon_form {
-  background-color: #DFB7B7;
-  border-radius: 8px;
+  background-color: #52AB4F;
+  border-radius: 15px;
   font-size: 1.1em;
   padding: 1em;
   text-align: center;
@@ -349,20 +349,20 @@ body {
   }
 
 .edit_input {
-  border: 1px solid #C27171;
+  border: 1px solid #2A7D25;
   border-radius: 5px;
   font-size: 1em;
 }
 
 .desc_input {
-  border: 1px solid #C27171;
+  border: 1px solid #2A7D25;
   border-radius: 5px;
   height: 5em;
   width: 100%;
 }
 
 .submit_pokemon {
-  background-color: #B7D7DF;
+  background-color: #A5C7A4;
   border: 1px solid #6FADBC;
   border-radius: 5px;
 }

@@ -1,20 +1,20 @@
-###The Database
+### The Database
 	PostgreSQL
-###ORM -Object Relational Mapping
+### ORM -Object Relational Mapping
 	Sequelize
-##Additional Downloaded Packages
+## Additional Downloaded Packages
 
-###Node JS
+### Node JS
 	Open source server framework
-###Express
+### Express
 	Server side web framework.
-###Mustache-Express
+### Mustache-Express
 	Used for templating
-###Method-Override
+### Method-Override
 	Used for accepting “PUT” and ‘DELETE” methods within the HTML form.
-###Multer
+### Multer
 	Used for storing our uploaded images
-###Express-Session
+### Express-Session
 	Used for keeping track of our user’s login.
-###Body-Parser
+### Body-Parser
 	Used for decoding JSON and grabbing content from the template.

@@ -66,5 +66,9 @@ Register the user and upload his/her given information into the database.<br>
 * A JSON button/href link is added which will display the Pokemon's data in a JSON format.<br>
 ![screen shot 2018-01-22 at 9 59 05 am](https://user-images.githubusercontent.com/31966603/35230291-446602b4-ff5b-11e7-859b-e9a21d0ee11b.png)
 
+## Showing the User's captured Pokemon
+![screen shot 2018-01-22 at 11 09 13 am](https://user-images.githubusercontent.com/31966603/35233802-c25c2a00-ff64-11e7-989b-f873839cc557.png)
+
+
 ## JSON Format for all the Pokemon that the user has captured<br>
 ![screen shot 2018-01-22 at 10 00 09 am](https://user-images.githubusercontent.com/31966603/35230305-4bbe728a-ff5b-11e7-8bc9-5885411a5591.png)

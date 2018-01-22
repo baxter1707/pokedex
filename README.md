@@ -21,18 +21,18 @@
 
 ### Intergrating Many to Many
 app.get('/home/:id/showuserpokemon', (req,res) => { <br>
-  models.users.findAll({ 
-      where : {
-        id : req.session.userId
-      }, include : [{
-        required : false,
-        model : models.pokemon
-      }], raw : false
-}).then((user) => {
-  res.render('viewuserpokemon', {
-    user:user,
-    username: req.session.username,
-    userId:req.session.userId
-  })
- })
-})
+  models.users.findAll({ <br>
+      where : {	<br>
+        id : req.session.userId	<br>
+      }, include : [{<br>
+        required : false,<br>
+        model : models.pokemon<br>
+      }], raw : false<br>
+}).then((user) => {<br>
+  res.render('viewuserpokemon', {<br>
+    user:user,<br>
+    username: req.session.username,<br>
+    userId:req.session.userId<br>
+  })<br>
+ })<br>
+})<br>

@@ -67,6 +67,7 @@ Register the user and upload his/her given information into the database.<br>
 ![screen shot 2018-01-22 at 9 59 05 am](https://user-images.githubusercontent.com/31966603/35230291-446602b4-ff5b-11e7-859b-e9a21d0ee11b.png)
 
 ## Showing the User's captured Pokemon
+* A href link is embedded which will display the user and their caught Pokemon in a JSON format
 ![screen shot 2018-01-22 at 11 09 13 am](https://user-images.githubusercontent.com/31966603/35233802-c25c2a00-ff64-11e7-989b-f873839cc557.png)
 
 

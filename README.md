@@ -46,12 +46,18 @@ app.get('/home/:id/showuserpokemon', (req,res) => { <br>
 Register the user and upload his/her registration to the database
 ![screen shot 2018-01-22 at 9 58 54 am](https://user-images.githubusercontent.com/31966603/35230292-44977f74-ff5b-11e7-8388-f83a195748a9.png)
 
-![screen shot 2018-01-22 at 9 59 49 am](https://user-images.githubusercontent.com/31966603/35230257-2b13a960-ff5b-11e7-9c5e-6341bce6462f.png)
-![screen shot 2018-01-22 at 9 59 49 am](https://user-images.githubusercontent.com/31966603/35230286-4439fed0-ff5b-11e7-89bb-8475e25f3ef8.png)
-![screen shot 2018-01-22 at 9 59 25 am](https://user-images.githubusercontent.com/31966603/35230288-444c46c6-ff5b-11e7-8ae2-13988ab37a58.png)
-![screen shot 2018-01-22 at 9 59 05 am](https://user-images.githubusercontent.com/31966603/35230291-446602b4-ff5b-11e7-859b-e9a21d0ee11b.png)
-
+## Login Page
 ![screen shot 2018-01-22 at 9 58 19 am](https://user-images.githubusercontent.com/31966603/35230293-44b19e7c-ff5b-11e7-81fa-be31831cce9f.png)
+
+## Create a Pokemon
+![screen shot 2018-01-22 at 9 59 49 am](https://user-images.githubusercontent.com/31966603/35230286-4439fed0-ff5b-11e7-89bb-8475e25f3ef8.png)
+
+## Update a Pokemon
+![screen shot 2018-01-22 at 9 59 25 am](https://user-images.githubusercontent.com/31966603/35230288-444c46c6-ff5b-11e7-8ae2-13988ab37a58.png)
+
+![screen shot 2018-01-22 at 9 59 49 am](https://user-images.githubusercontent.com/31966603/35230257-2b13a960-ff5b-11e7-9c5e-6341bce6462f.png)
+
+![screen shot 2018-01-22 at 9 59 05 am](https://user-images.githubusercontent.com/31966603/35230291-446602b4-ff5b-11e7-859b-e9a21d0ee11b.png)
 
 ![screen shot 2018-01-21 at 6 59 09 pm](https://user-images.githubusercontent.com/31966603/35230295-4513d3d0-ff5b-11e7-8cd9-c633acb5c497.png)
 ![screen shot 2018-01-22 at 10 00 30 am](https://user-images.githubusercontent.com/31966603/35230303-4b2f2814-ff5b-11e7-956d-2e7ebf5d0dc8.png)

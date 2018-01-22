@@ -20,8 +20,8 @@
 	Used for decoding JSON and grabbing content from the template.
 
 ### Intergrating Many to Many
-app.get('/home/:id/showuserpokemon', (req,res) => { *separate paragraph*
-  models.users.findAll({ *separate paragraph*
+app.get('/home/:id/showuserpokemon', (req,res) => { <br>
+  models.users.findAll({ 
       where : {
         id : req.session.userId
       }, include : [{

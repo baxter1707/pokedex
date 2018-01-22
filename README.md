@@ -18,3 +18,21 @@
 	Used for keeping track of our user’s login.
 ### Body-Parser
 	Used for decoding JSON and grabbing content from the template.
+
+### Intergrating Many to Many
+app.get('/home/:id/showuserpokemon', (req,res) => {
+  models.users.findAll({
+      where : {
+        id : req.session.userId
+      }, include : [{
+        required : false,
+        model : models.pokemon
+      }], raw : false
+}).then((user) => {
+  res.render('viewuserpokemon', {
+    user:user,
+    username: req.session.username,
+    userId:req.session.userId
+  })
+ })
+})

@@ -25,16 +25,16 @@ app.use(session({
   saveUninitialized : true
 }))
 
-const storage = multer.diskStorage({
-  destination : './uploads/',
-  filename : ( (req,file,cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  })
-})
+// const storage = multer.diskStorage({
+//   destination : './uploads/',
+//   filename : ( (req,file,cb) => {
+//     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+//   })
+// })
 
-const upload = multer({
-  storage : storage
-})
+// const upload = multer({
+//   storage : storage
+// })
 
 // STARTING POINT FOR THE ROUTES / GETS
 // REDIRECT TO THE HOME PAGE
@@ -319,7 +319,7 @@ app.post('/home/catchpokemon/:id', (req,res) => {
 })
 
 // CREATE A POKEMON
-app.post('/home/createpokemon', upload.single('pokemonimg'), (req,res) => {
+app.post('/home/createpokemon', (req,res) => {
   models.pokemon.create({
     pokeid: req.body.pokeid,
     name: req.body.name,
@@ -344,7 +344,7 @@ app.post('/home/createpokemon', upload.single('pokemonimg'), (req,res) => {
 })
 
 // EDIT POKEMON
-app.put('/home/pokemon/:id/update?', upload.single('pokemonimg'), (req,res) => {
+app.put('/home/pokemon/:id/update?', (req,res) => {
   models.pokemon.update({
     pokeid: req.body.pokeid,
     name: req.body.name,
@@ -372,7 +372,7 @@ app.put('/home/pokemon/:id/update?', upload.single('pokemonimg'), (req,res) => {
 })
 
 // EDIT Trainer
-app.put('/home/:id/traineredit?', upload.single('trainerimage'), (req,res) => {
+app.put('/home/:id/traineredit?', (req,res) => {
   models.users.update({
     firstname: req.body.firstname,
     lastname: req.body.lastname,

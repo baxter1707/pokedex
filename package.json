@@ -1,0 +1,32 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "PostgreSQL ### ORM -Object Relational Mapping \tSequelize ## Additional Downloaded Packages",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.2.0",
+    "method-override": "^2.3.10",
+    "multer": "^1.3.1",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.7",
+    "pg-promise": "^8.4.5",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baxter1707/pokedex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baxter1707/pokedex/issues"
+  },
+  "homepage": "https://github.com/baxter1707/pokedex#readme"
+}

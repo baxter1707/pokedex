@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "ashKetchum",
+    "password": "charmander",
+    "database": "pokedex",
+    "host": "poked.cc57csrvxufx.us-east-2.rds.amazonaws.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "ashKetchum",
+    "password": "charmander",
+    "database": "pokedex",
+    "host": "poked.cc57csrvxufx.us-east-2.rds.amazonaws.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "ashKetchum",
+    "password": "charmander",
+    "database": "pokedex",
+    "host": "poked.cc57csrvxufx.us-east-2.rds.amazonaws.com",
+    "dialect": "postgres"
+  }
+}

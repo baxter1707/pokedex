@@ -30,6 +30,18 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      bio: {
+        type: Sequelize.STRING
+      },
+      age: {
+        type: Sequelize.INTEGER
+      },
+      image: {
+        type: Sequelize.STRING
+      },
+      hometown: {
+        type: Sequelize.STRING
       }
     });
   },

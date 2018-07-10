@@ -23,6 +23,9 @@
     "type": "git",
     "url": "git+https://github.com/baxter1707/pokedex.git"
   },
+  "engines": {
+    "node":"10.6.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {

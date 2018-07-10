@@ -19,6 +19,8 @@ app.set('view engine', 'mustache')
 app.use(expressValidator())
 app.set('views', './views')
 
+app.set('port', (process.env.PORT || 3000))
+
 app.use(session({
   secret : 'keyboard cat',
   resave : false,
@@ -389,6 +391,6 @@ app.put('/home/:id/traineredit?', (req,res) => {
 })
 
 // LISTEN TO ROUTES
-app.listen(3000, () =>{
-  console.log('We are live on channel 3000')
+app.listen(app.get('port'), () =>{
+  console.log('We are live on channel', app.get('port'))
 })

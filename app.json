@@ -1,0 +1,7 @@
+{
+  "name":"Pokedex",
+  "description":"Built in class by Jesus and Michael",
+  "repository": "https://github.com/baxter1707/pokedex.git",
+  "keywords": ["node", "express"],
+  "image": "heroku/nodejs"
+}
